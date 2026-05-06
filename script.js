@@ -15,6 +15,11 @@
       if (window.scrollY > 60) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     }
+    const btt = document.querySelector('.back-to-top');
+    if (btt) {
+      if (window.scrollY > 400) btt.classList.add('visible');
+      else btt.classList.remove('visible');
+    }
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
@@ -125,17 +130,33 @@
   const lightbox = document.getElementById('lightbox');
   const lbContent = document.getElementById('lb-content');
   const lbCaption = document.getElementById('lb-caption');
+  let currentIndex = 0;
+  const visibleItems = () => Array.from(galleryItems).filter(item => item.style.display !== 'none');
 
-  galleryItems.forEach(item => {
+  function updateLightbox(index) {
+    const items = visibleItems();
+    if (index < 0) index = items.length - 1;
+    if (index >= items.length) index = 0;
+    currentIndex = index;
+    
+    const item = items[currentIndex];
+    const imgSource = item.querySelector('img')?.src;
+    if (imgSource) lbContent.src = imgSource;
+    lbCaption.textContent = item.dataset.caption || '';
+  }
+
+  galleryItems.forEach((item) => {
     item.addEventListener('click', () => {
       if (!lightbox) return;
-      const imgSource = item.querySelector('img')?.src;
-      if (imgSource) lbContent.src = imgSource;
-      lbCaption.textContent = item.dataset.caption || '';
+      const items = visibleItems();
+      updateLightbox(items.indexOf(item));
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
   });
+
+  document.getElementById('lb-next')?.addEventListener('click', (e) => { e.stopPropagation(); updateLightbox(currentIndex + 1); });
+  document.getElementById('lb-prev')?.addEventListener('click', (e) => { e.stopPropagation(); updateLightbox(currentIndex - 1); });
 
   document.getElementById('lb-close')?.addEventListener('click', closeLb);
   lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLb(); });
@@ -175,5 +196,8 @@
   });
   document.querySelectorAll('[data-call]').forEach(el => {
     el.addEventListener('click', () => window.location.href = 'tel:+918879170570');
+  });
+  document.querySelector('.back-to-top')?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();

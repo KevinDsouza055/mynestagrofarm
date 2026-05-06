@@ -801,9 +801,31 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   align-items: center; justify-content: center;
 }
 .lightbox.open { display: flex; }
+.lb-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition);
+  z-index: 2001;
+}
+.lb-nav-btn:hover { background: rgba(255,255,255,0.25); }
+.lb-prev { left: -4rem; }
+.lb-next { right: -4rem; }
+
 .lightbox-inner {
   position: relative;
-  max-width: 85vw;
+  max-width: 70vw;
   max-height: 85vh;
   text-align: center;
 }
@@ -823,6 +845,19 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 }
 .lightbox-close:hover { opacity: 1; }
 .lightbox-caption { color: rgba(255,255,255,0.65); font-size: 0.85rem; margin-top: 1rem; }
+
+/* Back to Top */
+.back-to-top {
+  width: 44px; height: 44px;
+  background: var(--forest);
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: all var(--transition);
+  box-shadow: var(--shadow-md);
+}
+.back-to-top.visible { opacity: 1; pointer-events: auto; }
 
 /* ─── About Page ─── */
 .about-full { background: var(--ivory); }
