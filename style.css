@@ -266,10 +266,11 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 /* Simulated scenic bg using CSS gradient */
 .hero-scenic {
   position: absolute; inset: 0;
-  background-image: linear-gradient(to bottom, rgba(26,46,27,0.4), rgba(26,46,27,0.7)), url('assets/hero.jpg');
+  background-image: linear-gradient(to bottom, rgba(26,46,27,0.3), rgba(26,46,27,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2000&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: transform 10s ease-out; /* Slow zoom effect */
   z-index: 0;
 }
 .hero-content {
@@ -411,8 +412,9 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   overflow: hidden;
   position: relative;
 }
-.room-thumb .img-ph {
+.room-thumb .img-ph, .room-thumb img {
   width: 100%; height: 100%;
+  object-fit: cover;
   display: flex; align-items: center; justify-content: center;
   font-size: 3rem;
   transition: transform 0.5s ease;
@@ -596,16 +598,16 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   align-items: flex-end;
 }
 .float-wa {
-  width: 54px; height: 54px;
+  width: 60px; height: 60px;
   background: #25D366;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
   transition: all var(--transition);
   cursor: pointer;
   animation: pulse-green 2.5s ease infinite;
 }
+.float-wa svg { width: 32px; height: 32px; fill: white; }
 .float-wa:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
 .float-call {
   background: var(--forest);
