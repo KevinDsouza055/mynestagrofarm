@@ -22,12 +22,13 @@
   // Hamburger toggle
   if (hamburger) {
     hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileNav && mobileNav.classList.toggle('open');
-      overlay && overlay.classList.toggle('open');
-      document.body.style.overflow = mobileNav?.classList.contains('open') ? 'hidden' : '';
+      const isOpen = hamburger.classList.toggle('open');
+      if (mobileNav) mobileNav.classList.toggle('open', isOpen);
+      if (overlay) overlay.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
   }
+
   if (overlay) {
     overlay.addEventListener('click', () => {
       hamburger?.classList.remove('open');
@@ -56,7 +57,7 @@
         observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+ }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
 
   faders.forEach(el => observer.observe(el));
 })();
@@ -128,7 +129,8 @@
   galleryItems.forEach(item => {
     item.addEventListener('click', () => {
       if (!lightbox) return;
-      lbContent.textContent = item.querySelector('.g-ph')?.textContent || '🌿';
+      const imgSource = item.querySelector('img')?.src;
+      if (imgSource) lbContent.src = imgSource;
       lbCaption.textContent = item.dataset.caption || '';
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';

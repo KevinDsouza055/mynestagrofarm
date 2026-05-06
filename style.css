@@ -92,6 +92,16 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   transition: all var(--transition);
   white-space: nowrap;
 }
+/* New CSS for embedded WhatsApp icons */
+.whatsapp-icon {
+  display: inline-block;
+  width: 18px; /* Standard icon size */
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 0.4rem; /* Spacing from text */
+}
+.whatsapp-icon svg { width: 100%; height: 100%; fill: currentColor; }
+
 .btn-primary {
   background: var(--forest);
   color: var(--white);
@@ -206,7 +216,7 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 .hamburger span:nth-child(1) { top: 0px; }
 .hamburger span:nth-child(2) { top: 9px; }
 .hamburger span:nth-child(3) { top: 18px; }
-.navbar.light .hamburger span { background: var(--forest); }
+.navbar.light .hamburger:not(.open) span { background: var(--forest); }
 .hamburger.open span:nth-child(1) { top: 9px; transform: rotate(135deg); background: var(--white); }
 .hamburger.open span:nth-child(2) { opacity: 0; left: -60px; }
 .hamburger.open span:nth-child(3) { top: 9px; transform: rotate(-135deg); background: var(--white); }
@@ -243,7 +253,7 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 /* ─── Hero ─── */
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -714,15 +724,17 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
 .gallery-section { background: var(--ivory); }
 .gallery-filters {
   display: flex; gap: 0.75rem; flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  justify-content: center;
 }
 .filter-btn {
-  padding: 0.5rem 1.3rem;
+  padding: 0.6rem 1.6rem;
   border-radius: 50px;
-  border: 1.5px solid var(--beige-dark);
-  background: white;
+  border: 1px solid var(--beige-dark);
+  background: transparent;
   font-family: var(--font-body);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
   cursor: pointer;
   transition: all var(--transition);
   color: var(--text-mid);
@@ -731,37 +743,54 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   background: var(--forest);
   border-color: var(--forest);
   color: white;
+  box-shadow: var(--shadow-sm);
 }
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 250px;
+  gap: 1.5rem;
+  grid-auto-flow: dense;
 }
 .gallery-item {
-  aspect-ratio: 1;
   border-radius: var(--radius-sm);
   overflow: hidden;
   cursor: pointer;
   position: relative;
   transition: transform var(--transition);
 }
-.gallery-item:nth-child(7) { grid-column: span 2; }
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+.gallery-item.big { grid-column: span 2; grid-row: span 2; }
+
 .gallery-item .g-ph {
   width: 100%; height: 100%;
+  object-fit: cover;
   display: flex; align-items: center; justify-content: center;
-  font-size: 3.5rem;
   transition: transform 0.5s ease;
 }
 .gallery-item:hover .g-ph { transform: scale(1.07); }
 .gallery-item-overlay {
   position: absolute; inset: 0;
-  background: rgba(26,46,27,0);
+  background: linear-gradient(to top, rgba(26,46,27,0.8) 0%, rgba(26,46,27,0) 50%);
+  opacity: 0;
   display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  padding: 1.5rem;
+  text-align: center;
   transition: all var(--transition);
 }
-.gallery-item:hover .gallery-item-overlay { background: rgba(26,46,27,0.45); }
-.gallery-item-overlay svg { opacity: 0; transition: opacity var(--transition); color: white; width: 36px; height: 36px; }
-.gallery-item:hover .gallery-item-overlay svg { opacity: 1; }
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-item-overlay span {
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover .gallery-item-overlay span { transform: translateY(0); }
+.gallery-item-overlay svg { color: white; width: 28px; height: 28px; }
 
 /* Lightbox */
 .lightbox {
@@ -772,8 +801,19 @@ h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
   align-items: center; justify-content: center;
 }
 .lightbox.open { display: flex; }
-.lightbox-inner { position: relative; max-width: 90vw; max-height: 90vh; text-align: center; }
-.lightbox-content { font-size: 8rem; display: block; }
+.lightbox-inner {
+  position: relative;
+  max-width: 85vw;
+  max-height: 85vh;
+  text-align: center;
+}
+.lightbox-content {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
 .lightbox-close {
   position: absolute; top: -2.5rem; right: 0;
   background: none; border: none;
