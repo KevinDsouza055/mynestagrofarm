@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — My Nest Agro Farm Resort</title>
+  <meta name="description" content="Explore the beauty of My Nest Agro Farm Resort — rooms, pool, food, and nature in Karnala, Panvel." />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar light" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" style="color:var(--forest)">My Nest<span>.</span><small>Agro Farm Resort</small></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="rooms.html" class="nav-link">Stay</a></li>
+      <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-overlay"></div>
+<nav class="mobile-nav">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="rooms.html" class="nav-link">Stay</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="contact.html" class="btn btn-gold">Book Now</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></div>
+    <span class="section-label">Photo Gallery</span>
+    <h1>A Glimpse of <em>Our World</em></h1>
+    <p>Explore the beauty, comfort, and nature that awaits you at My Nest Agro Farm Resort.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section section">
+  <div class="container">
+    <div class="gallery-filters fade-in">
+      <button class="filter-btn active" data-filter="all">All Photos</button>
+      <button class="filter-btn" data-filter="rooms">Rooms</button>
+      <button class="filter-btn" data-filter="pool">Pool &amp; Jacuzzi</button>
+      <button class="filter-btn" data-filter="food">Food &amp; BBQ</button>
+      <button class="filter-btn" data-filter="nature">Farm &amp; Nature</button>
+    </div>
+
+    <div class="gallery-grid fade-in">
+
+      <!-- Rooms -->
+      <div class="gallery-item" data-category="rooms" data-caption="Deluxe AC Room — Cosy &amp; Clean">
+        <div class="g-ph" style="background:linear-gradient(135deg,#2C4A2E,#3d6b40)">🛏️</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="rooms" data-caption="Family Suite — Spacious &amp; Comfortable">
+        <div class="g-ph" style="background:linear-gradient(135deg,#3d6b40,#6B8F71)">🏡</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Pool -->
+      <div class="gallery-item" data-category="pool" data-caption="Swimming Pool — Open Air &amp; Refreshing">
+        <div class="g-ph" style="background:linear-gradient(135deg,#1e5f8a,#2980b9)">🏊</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Nature -->
+      <div class="gallery-item" data-category="nature" data-caption="Lush Farm Gardens — Pure &amp; Serene">
+        <div class="g-ph" style="background:linear-gradient(135deg,#2d5a27,#4a8c3f)">🌿</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div class="gallery-item" data-category="food" data-caption="Farm-to-Table Breakfast — Fresh &amp; Organic">
+        <div class="g-ph" style="background:linear-gradient(135deg,#8b4513,#c96a2a)">🍳</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Pool-Jacuzzi -->
+      <div class="gallery-item" data-category="pool" data-caption="Jacuzzi — Relax &amp; Unwind">
+        <div class="g-ph" style="background:linear-gradient(135deg,#1a5276,#2471a3)">♨️</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Wide BBQ -->
+      <div class="gallery-item" data-category="food" data-caption="Barbeque Night — Sizzling &amp; Memorable" style="aspect-ratio:2/1;">
+        <div class="g-ph" style="background:linear-gradient(135deg,#7d3c00,#c0392b);font-size:5rem">🔥</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Nature 2 -->
+      <div class="gallery-item" data-category="nature" data-caption="Sunrise Over The Farm — Nature at Its Best">
+        <div class="g-ph" style="background:linear-gradient(135deg,#e8a700,#e67e22)">🌅</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 3 -->
+      <div class="gallery-item" data-category="rooms" data-caption="Pool-View Suite — Premium &amp; Elegant">
+        <div class="g-ph" style="background:linear-gradient(135deg,#C9A84C,#8b6914)">🌸</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Food 3 -->
+      <div class="gallery-item" data-category="food" data-caption="Local Maharashtrian Cuisine — Authentic Flavours">
+        <div class="g-ph" style="background:linear-gradient(135deg,#27ae60,#2c9e58)">🥘</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Nature 3 -->
+      <div class="gallery-item" data-category="nature" data-caption="Bird's Eye — Karnala Forest Surroundings">
+        <div class="g-ph" style="background:linear-gradient(135deg,#1a7a34,#2ecc71)">🦜</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+      <!-- Room 4 -->
+      <div class="gallery-item" data-category="rooms" data-caption="Farm Cottage — Rustic &amp; Private">
+        <div class="g-ph" style="background:linear-gradient(135deg,#3d5e3f,#1a2e1b)">🏕️</div>
+        <div class="gallery-item-overlay">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lb-close">✕</button>
+    <span class="lightbox-content" id="lb-content">🌿</span>
+    <p class="lightbox-caption" id="lb-caption"></p>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <span class="section-label" style="color:var(--gold-light)">Like What You See?</span>
+    <h2 class="section-title">Come Experience It in Person</h2>
+    <p>Photos tell a story — but nothing beats being here. Book your stay and create your own memories.</p>
+    <div class="cta-btns" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
+      <a href="contact.html" class="btn btn-gold btn-lg">Book Your Stay</a>
+      <a href="rooms.html" class="btn btn-outline btn-lg">View Rooms</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">My Nest<span style="color:var(--gold)">.</span><small>Agro Farm Resort</small></div>
+        <p>A premium nature retreat in Karnala, Panvel. Luxury, nature, and warmth — all in one place.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms.html">Rooms &amp; Stay</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Amenities</h5>
+        <ul>
+          <li><a href="#">Swimming Pool</a></li>
+          <li><a href="#">Jacuzzi</a></li>
+          <li><a href="#">Barbeque</a></li>
+          <li><a href="#">Pet Friendly</a></li>
+          <li><a href="#">Free Parking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item"><span class="icon">📞</span><span><a href="tel:+918879170570" style="color:rgba(255,255,255,0.75)">088791 70570</a></span></div>
+        <div class="footer-contact-item"><span class="icon">�</span><span>Karnala, Panvel, Maharashtra</span></div>
+        <div class="footer-contact-item"><span class="icon">💬</span><span><a href="#" data-wa style="color:rgba(255,255,255,0.75)">WhatsApp Us</a></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 My Nest Agro Farm Resort. All rights reserved.</span>
+      <div class="footer-rating"><span>★★★★☆</span><span style="color:rgba(255,255,255,0.4)">4.1 · Very Good · 97 reviews</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <div class="float-wa" data-wa title="Chat on WhatsApp">💬</div>
+  <div class="float-call" data-call>📞 Call Now</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
